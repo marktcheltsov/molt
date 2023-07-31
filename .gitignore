@@ -1,0 +1,9 @@
+.node_modules
+.request.log
+.error.log
+.env
+.client
+.client
+.shop-admin-client
+server/node_modules/
+server/env
