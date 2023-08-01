@@ -4,6 +4,8 @@
 .env
 .client
 .client
-.shop-admin-client
+.server
 server/node_modules/
 server/env
+server/errors
+server/
