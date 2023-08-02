@@ -2,11 +2,12 @@ const express = require('express');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { PORT = 3000 } = process.env;
+const { PORT = 4000 } = process.env;
 const cors = require('cors');
+const { creatUser, login } = require('./controllers/user');
 const app = express();
 
-const allowedCors = [''];
+const allowedCors = ['http://localhost:3000'];
 
 const corsOptions = {
   origin: allowedCors,
@@ -16,7 +17,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use(bodyParser.json());
 
+app.post('/signin', login);
+  
+app.post('/signup', creatUser);
 
 
 mongoose.connect('mongodb://localhost:27017/volt', {useNewUrlParser: true})
